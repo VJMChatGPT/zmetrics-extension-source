@@ -19,6 +19,7 @@ export function scanCredentials(text, name) {
   if (CREDENTIAL_PATTERNS.some(pattern => pattern.test(text))) fail(`Credential-like content in ${name}; value withheld`);
 }
 export async function safeRead(root, name) {
+  root = await realpath(root); // Windows temporary roots can be junctions to another drive.
   let target = root;
   for (const part of name.split("/")) {
     target = resolve(target, part);
@@ -85,11 +86,28 @@ export async function validateRelease(directory) {
   const { data, ...result } = await validateInputs(directory);
   return result;
 }
+export function isAllowedOutput(root, output, paths = { relative, isAbsolute, sep }) {
+  const rel = paths.relative(root, output), back = paths.relative(output, root);
+  return !!rel && !!back &&
+    (paths.isAbsolute(back) || back === ".." || back.startsWith(`..${paths.sep}`)) &&
+    (paths.isAbsolute(rel) || rel === ".." || rel.startsWith(`..${paths.sep}`) || rel.startsWith(`dist${paths.sep}`));
+}
+async function canonicalOutput(output) {
+  // Resolve existing ancestors before checking containment, including junctions.
+  const tail = [];
+  while (true) {
+    try { return resolve(await realpath(output), ...tail.reverse()); }
+    catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      const parent = dirname(output);
+      if (parent === output) throw error;
+      tail.push(relative(parent, output)); output = parent;
+    }
+  }
+}
 export async function buildRelease({ root = SOURCE_ROOT, output = resolve(root, "dist/extension") } = {}) {
-  root = await realpath(root); output = resolve(output);
-  const rel = relative(root, output), back = relative(output, root);
-  if (!rel || !back || (!back.startsWith(`..${sep}`) && back !== "..") ||
-      (!rel.startsWith(`..${sep}`) && !isAbsolute(rel) && !rel.startsWith(`dist${sep}`))) fail("Output must be a fresh dist subdirectory or an external sibling");
+  root = await realpath(root); output = await canonicalOutput(resolve(output));
+  if (!isAllowedOutput(root, output)) fail("Output must be a fresh dist subdirectory or an external sibling");
   const { data, ...result } = await validateInputs(root);
   await mkdir(dirname(output), { recursive: true });
   await mkdir(output); // Existing output is deliberately never replaced.

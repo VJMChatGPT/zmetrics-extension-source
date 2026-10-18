@@ -1,9 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { mkdtemp, readFile, writeFile, rm, cp, mkdir } from "node:fs/promises";
+import { mkdtemp, readFile, writeFile, rm, cp, mkdir, symlink } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join, resolve, relative } from "node:path";
-import { buildRelease, packageRelease, validateRelease, SOURCE_ROOT, RELEASE_FILES } from "./build-release.js";
+import { join, resolve, relative, win32 } from "node:path";
+import { buildRelease, packageRelease, validateRelease, safeRead, isAllowedOutput, SOURCE_ROOT, RELEASE_FILES } from "./build-release.js";
 import { SOURCE_FILES } from "./release-files.js";
 import { readZip } from "./zip.js";
 async function temporary(t) {
@@ -23,6 +23,28 @@ async function sourceCopy(directory) {
   }
   return root;
 }
+
+test("Windows output boundaries allow another drive while protecting source and ancestors", () => {
+  const root = "D:\\work\\source";
+  for (const output of ["C:\\Temp\\build", "D:\\Temp\\build", root + "\\dist\\extension"])
+    assert.equal(isAllowedOutput(root, output, win32), true, output);
+  for (const output of [root, "D:\\work", "D:\\", root + "\\docs\\build", root + "\\dist", root + "\\dist-private\\build"])
+    assert.equal(isAllowedOutput(root, output, win32), false, output);
+});
+
+test("junction roots are canonicalized without allowing linked files or unsafe outputs", async t => {
+  const dir = await temporary(t), root = await sourceCopy(dir), alias = join(dir, "source-alias");
+  await symlink(root, alias, "junction");
+  assert.deepEqual(await safeRead(alias, "manifest.json"), await readFile(join(root, "manifest.json")));
+  await assert.rejects(buildRelease({ root, output: join(alias, "docs", "unsafe-build") }));
+  await assert.rejects(buildRelease({ root, output: dir }));
+  const outside = join(dir, "outside.txt");
+  await writeFile(outside, "outside");
+  await assert.rejects(safeRead(alias, "../outside.txt"));
+  // Directory junctions need no Windows symlink privilege and remain refused inside source.
+  await symlink(dir, join(root, "linked-dir"), "junction");
+  await assert.rejects(safeRead(alias, "linked-dir/outside.txt"), /Symlink refused/);
+});
 test("public build copies the entire approved payload without transformations or private inputs", async t => {
   const dir = await temporary(t), result = await buildRelease({ output: join(dir, "extension") });
   assert.equal(result.version, "1.4.8"); assert.equal(result.files.length, 18);
