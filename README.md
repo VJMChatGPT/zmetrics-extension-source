@@ -11,12 +11,12 @@ The matching local v5 ZIP is identified by content; its exact upload provenance
 still requires the publisher's record. No badge/alarms or later attribution changes
 are included in this historical reference.
 
-**Copyright (c) 2026 ZMetrics contributors. All rights reserved.** Original source
+**Copyright (c) 2026 VJMChatGPT (ZMetrics). All rights reserved.** Original source
 is visible for transparency and independent security auditing. No general right to
 reuse, modify, redistribute or commercialize it is granted. Applicable law, hosting
 terms and third-party licenses remain unaffected. This is not OSI open source.
 See [copyright/usage notice](COPYRIGHT.txt) and [licensing boundaries](docs/LICENSING.md).
-The legal owner/asset credits remain subject to confirmation before publication.
+The project owner has confirmed sole ownership of original code and graphical assets.
 
 [Chrome Web Store](https://chromewebstore.google.com/detail/ipihfpalipjpdoboegoemfhfldcpdeke)
 · [Privacy](PRIVACY.md) · [Security](SECURITY.md) · [Copyright and usage](COPYRIGHT.txt)
@@ -83,8 +83,8 @@ public-source inventory, syntax, permission boundary and credential patterns.
 `npm run build` creates the unpacked extension; `npm run package` builds and also
 creates the ZIP and hash manifests. Choose one on a fresh checkout: both refuse an
 existing `dist/extension`. Move a previous `dist` aside before rebuilding.
-The scripts work on Windows, macOS and Linux using Node alone; CI is prepared for
-Windows and Linux. Only the local Windows run has been verified during preparation.
+The scripts use Node alone. Windows and Linux CI and fresh Windows clones validate
+the build and tests. macOS has not been separately tested.
 
 There are no production or development npm dependencies and therefore no dependency
 lockfile. `package.json` is marked private solely to prevent accidental npm publication.
@@ -126,12 +126,25 @@ by a maintainer does not by itself prove Store equivalence.
 
 Data provided by [CoinGecko](https://www.coingecko.com/en/api/). API, data,
 coin images and trademarks have separate rights. No provider endorsement is implied.
-The published UI lacks visible provider credit; this snapshot faithfully records
-that state. Attribution/terms and plan entitlement require resolution before the
-source announcement and a separately versioned corrective Store release if needed.
+The owner reports direct CoinGecko confirmation permitting the current free service.
+This is an owner attestation, not a published provider agreement or endorsement.
+The published 1.4.8 UI lacks visible provider credit and bundled terms; this
+historical snapshot records that limitation. Provider attribution and user-terms
+obligations remain applicable. This source release does not claim those gaps are
+fixed or grant API/data rights to others. Any runtime correction belongs in a
+separately versioned Store release. See [licensing boundaries](docs/LICENSING.md).
 [Third-party notices](THIRD_PARTY_NOTICES.md) preserve Manrope's SIL OFL and both
 font copyright notices. Those permissions are unaffected by the project's reserved rights.
 
 Website, backend, AI experiments and private development tooling are excluded.
 See [security reporting](SECURITY.md), [privacy](PRIVACY.md) and
 [licensing boundaries](docs/LICENSING.md).
+
+## Versioned release
+
+The [v1.4.8 release](https://github.com/VJMChatGPT/zmetrics-extension-source/releases/tag/v1.4.8)
+provides the deterministic extension ZIP, complete source ZIP, file/source hash
+lists, Store-verification evidence and a publication manifest binding them to the
+tag's exact source commit. `SHA256SUMS` covers every attached release asset except
+itself. Rebuild from that tag and compare the ZIP hash and payload file hashes.
+This is a transparency release of the existing Store version, not a Store update.

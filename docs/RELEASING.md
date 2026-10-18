@@ -11,7 +11,8 @@ On a fresh authorized copy run `npm run check`, `npm test`, `npm run package`,
 Build a second fresh copy the same way and compare ZIP, FILES.sha256, SOURCE.sha256,
 SHA256SUMS and release.json. The ZIP is deterministic (sorted stored entries, fixed
 timestamps), containing exactly 18 files. No private transformations or inputs exist.
-Local validation was Windows-only; prepared Linux/Windows CI has not run remotely.
+Windows and Linux GitHub Actions and clean Windows clones validate this process.
+macOS has not been separately tested. All 92 tests pass on both CI platforms.
 
 The rebuilt ZIP will not equal the original v5 ZIP container: compression/order/
 timestamps differ. Every extracted file equals v5 exactly. Do not re-upload 1.4.8.
@@ -49,3 +50,23 @@ evidence. Never mix unpublished development features into a historical tag.
 Do not silently replace this 1.4.8 baseline. Future builds need a separate explicit
 inventory/reference review and unused Store version. CI validates only; publication
 and the first repository migration require separate owner approval.
+
+## GitHub release assets
+
+The v1.4.8 release attaches the deterministic 18-file extension ZIP and a complete
+52-file source ZIP, FILES.sha256, SOURCE.sha256, release.json, STORE-VERIFICATION.json,
+PUBLICATION.json and SHA256SUMS. PUBLICATION.json records the exact tagged commit,
+package/source archive hashes and Store correspondence scope. SHA256SUMS covers all
+seven other assets; its own digest is recorded in the release notes.
+
+For an independent check, download the release assets, verify SHA256SUMS, inspect
+PUBLICATION.json and the tag's commit, then rebuild from that source and compare
+the extension ZIP and FILES.sha256. SOURCE.sha256 verifies every repository source
+file; it excludes .git and generated build outputs. The deterministic source ZIP
+contains exactly those files, with no private preparation artifacts. GitHub also
+provides its own source archives, whose ZIP container bytes may differ.
+
+The stored Store CRX and original local ZIP are reference evidence rather than
+release uploads; their hashes/official retrieval evidence remain in the source.
+Exact original upload-container provenance is explicitly unconfirmed. A released
+source tag must never be moved to include later extension functionality.

@@ -1,4 +1,4 @@
-Copyright (c) 2026 ZMetrics contributors. All rights reserved.
+Copyright (c) 2026 VJMChatGPT (ZMetrics). All rights reserved.
 
 Public Source Code for Transparency.
 
@@ -14,7 +14,7 @@ independent implementations, or override separately licensed third-party rights.
 Manrope fonts remain under SIL OFL 1.1; see fonts/OFL.txt and
 THIRD_PARTY_NOTICES.md. Provider data/API and trademarks retain separate rights.
 
-Draft attribution: confirm the legal copyright owner, contribution provenance,
-commercial rights and final copyright credit before publication.
+VJMChatGPT is the project owner's public GitHub identity. The owner has confirmed
+sole ownership of the original ZMetrics source code and graphical assets.
 Contact for permission inquiries: support@zmetrics.net.
 No permission is granted merely by submitting an inquiry.
