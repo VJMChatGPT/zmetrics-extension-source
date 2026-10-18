@@ -126,7 +126,6 @@ by a maintainer does not by itself prove Store equivalence.
 
 Data provided by [CoinGecko](https://www.coingecko.com/en/api/). API, data,
 coin images and trademarks have separate rights. No provider endorsement is implied.
-The owner reports direct CoinGecko confirmation permitting the current free service.
 This is an owner attestation, not a published provider agreement or endorsement.
 The published 1.4.8 UI lacks visible provider credit and bundled terms; this
 historical snapshot records that limitation. Provider attribution and user-terms
