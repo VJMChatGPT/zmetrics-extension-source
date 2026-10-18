@@ -1,0 +1,18 @@
+{
+  "name": "zmetrics-extension",
+  "version": "1.4.8",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node --test zmetrics-extension.test.js background.test.js market-data.test.js popup.test.js radar-engine.test.js radar-ui.test.js scripts/build-release.test.js scripts/verify-store.test.js",
+    "test:coverage": "node --test --experimental-test-coverage zmetrics-extension.test.js background.test.js market-data.test.js popup.test.js radar-engine.test.js radar-ui.test.js scripts/build-release.test.js scripts/verify-store.test.js",
+    "check": "node scripts/check-source.js",
+    "build": "node scripts/build-release.js",
+    "package": "node scripts/build-release.js --package",
+    "verify:reference": "node scripts/verify-reference.js"
+  }
+}

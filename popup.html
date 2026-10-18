@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html data-zmetrics-surface="popup">
+<head>
+  <meta charset="UTF-8">
+  <title>ZMetrics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <div class="zm-header">
+      <div class="zm-title">
+        <img src="icons/zmetrics-logo.png"
+             class="zm-logo"
+             alt="ZMetrics Logo">
+      </div>
+
+      <div class="zm-header-actions">
+        <button id="refresh-btn">↻</button>
+        <button id="settings-btn">⚙</button>
+      </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div id="settings-panel" class="settings-panel panel-surface hidden" data-exclusive-panel>
+      <button id="settings-close-btn" class="settings-close-icon" aria-label="Close settings panel" type="button">×</button>
+      <div class="panel-header">
+        <div class="panel-title">Options</div>
+        <div class="panel-subtitle">Customize assets, shortcuts, and behavior.</div>
+      </div>
+
+      <!-- ASSETS SECTION -->
+      <div class="panel-section">
+        <div class="panel-section-title">Assets</div>
+
+      <div class="settings-search">
+        <input id="search-input" placeholder="Search coin…" />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <div id="search-results" class="search-results"></div>
+
+      <div id="settings-coins" class="settings-coins-list"></div>
+      </div>
+
+      <!-- CURRENCY SECTION -->
+      <div class="currency-section panel-section">
+        <div class="panel-section-title">Currency</div>
+        <label class="settings-select-label" for="currency-select">Display prices in</label>
+        <select id="currency-select" class="settings-select">
+          <option value="usd">US Dollar (USD)</option>
+          <option value="eur">Euro (EUR)</option>
+        </select>
+      </div>
+
+      <!-- SHORTCUT SECTION -->
+      <div class="shortcut-section panel-section">
+        <div class="panel-section-title">Keyboard shortcut</div>
+        <div class="shortcut-header">
+          <span id="shortcut-display" class="shortcut-display">Ctrl + Shift + Z / Command + Shift + Z</span>
+        </div>
+        <button id="shortcut-change-btn" class="shortcut-change-btn">
+          Change shortcut in Chrome…
+        </button>
+        <div class="shortcut-hint">
+          Default: Ctrl + Shift + Z (Windows/Linux) or Command + Shift + Z (macOS). Click the button below to customize it in Chrome.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="zm-table">
+      <div class="zm-table-header">
+        <div>Asset</div>
+        <div>Market Cap</div>
+        <div>Price</div>
+        <div>24h %</div>
+      </div>
+      <div id="coins-list" class="zm-table-body"></div>
+    </div>
+
+    <div class="zm-market-footer">
+      <button id="zmetrics-x-link" class="zm-social-link" type="button" aria-label="Open @zmetrics on X" title="@zmetrics on X">
+        <span class="zm-x-icon" aria-hidden="true">𝕏</span>
+      </button>
+      <div id="update-time" class="timestamp"></div>
+    </div>
+
+    <!-- RADAR: derived locally from the existing market snapshot -->
+    <section id="radar" class="radar-card" aria-labelledby="radar-title" aria-busy="true">
+      <h2 id="radar-title" class="radar-title">
+        <button id="radar-toggle" class="radar-toggle" type="button" aria-expanded="false" aria-controls="radar-content" aria-label="Radar">
+          <span class="radar-toggle-label">Radar<span id="radar-new" class="radar-new-dot hidden" aria-hidden="true"></span></span>
+          <span class="radar-chevron" aria-hidden="true">⌄</span>
+        </button>
+      </h2>
+      <div id="radar-content" class="radar-content hidden">
+      <div id="radar-context" class="radar-context">24h</div>
+      <p id="radar-message" class="radar-message" role="status">Reading your market data…</p>
+      <div id="radar-feature" class="radar-feature hidden" aria-live="polite" aria-atomic="true"></div>
+      <details id="radar-more" class="radar-more hidden">
+        <summary id="radar-more-label">More observations</summary>
+        <ul id="radar-extra" class="radar-extra"></ul>
+      </details>
+      <p id="radar-note" class="radar-note hidden"></p>
+      </div>
+    </section>
+
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "version": "1.4.8",
+  "status": "Published 1.4.8 payload matched to Google delivery on 2026-10-18",
+  "referenceZipSha256": "71d184975c8d59a0d229ecbf568826122fa659e8070261445aa6601f65d47918",
+  "files": {
+    "background.js": "fcff016228babd412e63bb23cef99b18ba0e934fc0c4323ed65c4add1a80e83c",
+    "extension-logic.js": "cddfb5f49983c27fb2f344b42138f799e7fdcf86f873285af0be522acb2b3623",
+    "fonts/OFL.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "fonts/manrope-400.ttf": "a13d9b41b0a471ce58f0e46d377fa3cc76615e4632c3b15eb397caadf7a13f0a",
+    "fonts/manrope-600.ttf": "6bad1a774228464cc88b8b0271555b266f7a3c64a7bedf15e165fdab4f6ac0ce",
+    "icons/icon128.png": "0fc380e55110069b164daf8f0ae4499074a47498082886cbb616533d41fbf9f8",
+    "icons/icon16.png": "b421e2b989052defec05465425794e9376894c291d33441fff825405d8b41a89",
+    "icons/icon32.png": "5aee2f02a7d0907473a71cc46d9852ae5c742c9cca8f1557a04e2a81bc04f66a",
+    "icons/icon48.png": "12ec891c4d337b771f93caff2ebceffa13096422166af5fe1241a6b8215ada90",
+    "icons/zmetrics-logo.png": "ec58b7dea63d2ad5077eb1fe1be133bc87ed1a4e1086a126fb705a397869802f",
+    "manifest.json": "a702cd8f7de28671d1f73329950488435f4e24807c15a5ac643cf705e071fc09",
+    "market-data.js": "c640ea0965a7cd2d9640c645e47b4707880c490246202d9d8d56ca98c99ebdbd",
+    "popup.html": "3895f7d6baaf3b13e1396ad10a1d46ee627a68f40f3da30cdfbe476502ed652d",
+    "popup.js": "b3148e188356f2e2a9ebca6c35cbc6df9430ff481c926b431ba2f2feae38f3f0",
+    "radar-engine.js": "a64668aa5042801334e61b6d8b1e6024ab27cb0d8c9de40d2a3bbc3ff9b7ab29",
+    "radar-ui.js": "b2e3663dc18aac67664d8587b6e08d29f02eff66286e9d917322deca21a54656",
+    "styles.css": "3661d7526f24968d31fd8cf7254a1ccba91bcc93c9310d45b4b8c1ffe69dc02a",
+    "window.html": "91a61a6c415e9a73b2f4fdfc9919de02092014b415d11bbc9d0c31826fe95125"
+  },
+  "packagingAdditions": [],
+  "matchingLocalZip": "release-1.4.8-ui-review-2026-10-16-v5.zip",
+  "originalUploadedZipIdentityVerified": false,
+  "storeCrxSha256": "b9e6c07c0be1b8b6c443c7a9646424734b5bc725cdbc771da71be63de380ea3f",
+  "storeDifferences": {
+    "manifestAddedField": {
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "addedFiles": {
+      "_metadata/verified_contents.json": "a0b5bc8a41b06b5c3b881ee75a606f7b16c1bc5a0d5749e961141965ed1384a7"
+    }
+  },
+  "scope": "All 18 application/assets match; manifest matches semantically after removing only the exact Google update_url. All other 17 files match byte-for-byte. Store metadata and signatures are additional. Local ZIP upload provenance is not established."
+}

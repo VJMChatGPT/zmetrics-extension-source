@@ -1,0 +1,20 @@
+Copyright (c) 2026 ZMetrics contributors. All rights reserved.
+
+Public Source Code for Transparency.
+
+Except for separately licensed third-party components, no general software
+license or permission to reuse, copy, modify, redistribute, sublicense or
+commercialize ZMetrics-owned source code is granted by publishing it.
+The source is made visible for transparency and independent security auditing.
+Any permission required beyond applicable law and applicable hosting-platform
+terms must be obtained in writing from the relevant copyright owner.
+
+This notice does not restrict statutory rights, expand copyright to ideas or
+independent implementations, or override separately licensed third-party rights.
+Manrope fonts remain under SIL OFL 1.1; see fonts/OFL.txt and
+THIRD_PARTY_NOTICES.md. Provider data/API and trademarks retain separate rights.
+
+Draft attribution: confirm the legal copyright owner, contribution provenance,
+commercial rights and final copyright credit before publication.
+Contact for permission inquiries: support@zmetrics.net.
+No permission is granted merely by submitting an inquiry.

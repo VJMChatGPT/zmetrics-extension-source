@@ -1,0 +1,45 @@
+{
+  "retrieval": {
+    "extensionId": "ipihfpalipjpdoboegoemfhfldcpdeke",
+    "retrievedAt": "2026-10-18T06:44:54.173564+00:00",
+    "requestUrl": "https://clients2.google.com/service/update2/crx?response=redirect&prodversion=140.0.0.0&acceptformat=crx3&x=id%3Dipihfpalipjpdoboegoemfhfldcpdeke%26uc",
+    "status": 200,
+    "finalUrl": "https://clients2.googleusercontent.com/crx/blobs/AZPVhcR358YbuiXELWRXn6cwoMYyEgG7-QIramm93uVepY1JlX4YhY-TjPOkPa43mXO6DgE6ghJJzAGrdm3tmydi9s5NgA7ZvhgP4U9R3rkWGkDA2EbVTHPPUO2617fuShwAxlKa5Ve2QHQrSVH07FJ1ei1aCrDWqDdq/IPIHFPALIPJPDOBOEGOEMFHFLDCPDEKE_1_4_8_0.crx",
+    "contentType": "application/x-chrome-extension",
+    "sha256": "b9e6c07c0be1b8b6c443c7a9646424734b5bc725cdbc771da71be63de380ea3f",
+    "bytes": 204914
+  },
+  "signatureVerification": {
+    "extensionId": "ipihfpalipjpdoboegoemfhfldcpdeke",
+    "version": 3,
+    "crxSha256": "b9e6c07c0be1b8b6c443c7a9646424734b5bc725cdbc771da71be63de380ea3f",
+    "proofs": [
+      {
+        "algorithm": "RSA-PKCS1-SHA256",
+        "publicKeySha256": "b5e4096227b83f82101fc2aa49f2a251accde3d98471464dd17d1819b43786b0",
+        "valid": true,
+        "extensionIdentity": false,
+        "pinnedStorePublisher": false
+      },
+      {
+        "algorithm": "RSA-PKCS1-SHA256",
+        "publicKeySha256": "8f875f0b8f9f3e1e46e4c575b32f34a4b90528b4c3835870a73aca41239bb99f",
+        "valid": true,
+        "extensionIdentity": true,
+        "pinnedStorePublisher": false
+      },
+      {
+        "algorithm": "ECDSA-SHA256",
+        "publicKeySha256": "61f7f2a6bfcf74cd0bc1fe2497cc9b04254c658f79f2145392867ea8366367cf",
+        "valid": true,
+        "extensionIdentity": false,
+        "pinnedStorePublisher": true
+      }
+    ],
+    "allSignaturesValid": true,
+    "extensionIdentityValid": true,
+    "pinnedStorePublisherValid": true,
+    "pinSource": "https://chromium.googlesource.com/chromium/src/+/refs/heads/main/components/crx_file/crx_verifier.cc?format=TEXT",
+    "scope": "Checks CRX3 identity, all archive signatures and Chromium publisher pin; does not recover original uploaded ZIP or replace Chrome installation/content verification."
+  }
+}

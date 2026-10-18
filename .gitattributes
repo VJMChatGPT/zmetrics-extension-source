@@ -1,0 +1,15 @@
+* text=auto eol=lf
+# Preserve the reviewed 1.4.8 payload bytes across Windows/Linux checkouts.
+manifest.json -text
+background.js -text
+popup.js -text
+popup.html -text
+window.html -text
+styles.css -text
+extension-logic.js -text
+market-data.js -text
+radar-engine.js -text
+radar-ui.js -text
+fonts/OFL.txt -text
+*.png binary
+*.ttf binary
